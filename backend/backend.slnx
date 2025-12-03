@@ -1,4 +1,4 @@
 <Solution>
   <Project Path="API/API.csproj" />
-  <Project Path="SOAP/SOAP.csproj" />
+  <Project Path="SOAP/SOAP.csproj" Id="a3bd77b0-4b1e-4fbb-a45e-149eec63cedd" />
 </Solution>
