@@ -1,3 +1,7 @@
+using BLL.Interfaces;
+using BLL.Services;
+using DAL.Interfaces;
+using DAL.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -26,6 +30,9 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Dependency injection
+builder.Services.AddServices();
 
 var app = builder.Build();
 

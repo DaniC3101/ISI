@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using DAL.Interfaces;
 using ServiceReference1;
 
-namespace DAL
+namespace DAL.Services
 {
-    public class UtilizadorDAL
+    public class UtilizadorDAL :IUtilizadorDAL
     {
         public async Task InsertUserAsync(string auth0UserId)
         {

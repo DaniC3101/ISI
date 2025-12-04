@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,14 @@ namespace API.Controllers
     [ApiController]
     public class UtilizadorController : ControllerBase
     {
-        [HttpPost("insert")]
+        private readonly IUtilizadorBLL _bll;
+
+        public UtilizadorController(IUtilizadorBLL bll)
+        {
+            _bll = bll;
+        }
+
+        [HttpPost("register")]
         [Authorize(Roles = "owner,user")]
         public async Task<IActionResult> Insert()
         {
@@ -17,8 +25,7 @@ namespace API.Controllers
             if (string.IsNullOrEmpty(subClaim))
                 return BadRequest("User ID claim not found.");
 
-            var bll = new UtilizadorBLL();
-            await bll.InserteUserAsync(subClaim);
+            await _bll.InserteUserAsync(subClaim);
 
             return Ok();
         }
