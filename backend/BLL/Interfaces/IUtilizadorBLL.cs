@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Models;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -7,6 +7,6 @@ namespace BLL.Interfaces
 {
     public interface IUtilizadorBLL
     {
-        Task InserteUserAsync(string auth0UserId);
+        Task<int> RegisterUserAsync(string accessToken);
     }
 }

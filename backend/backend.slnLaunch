@@ -11,23 +11,5 @@
         "Action": "Start"
       }
     ]
-  },
-  {
-    "Name": "API",
-    "Projects": [
-      {
-        "Path": "API\\API.csproj",
-        "Action": "Start"
-      }
-    ]
-  },
-  {
-    "Name": "SOAP",
-    "Projects": [
-      {
-        "Path": "SOAP\\SOAP.csproj",
-        "Action": "Start"
-      }
-    ]
   }
 ]

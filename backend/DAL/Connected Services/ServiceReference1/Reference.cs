@@ -20,6 +20,12 @@ namespace ServiceReference1
         
         private string Auth0UserIdField;
         
+        private string NomeField;
+        
+        private string EmailField;
+        
+        private string ImgUrlField;
+        
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         internal string Auth0UserId
         {
@@ -32,32 +38,71 @@ namespace ServiceReference1
                 this.Auth0UserIdField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        internal string Nome
+        {
+            get
+            {
+                return this.NomeField;
+            }
+            set
+            {
+                this.NomeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        internal string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                this.EmailField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        internal string ImgUrl
+        {
+            get
+            {
+                return this.ImgUrlField;
+            }
+            set
+            {
+                this.ImgUrlField = value;
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.UtilizadorRepositorySoap")]
-    internal interface UtilizadorRepositorySoap
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.UtilizadorRepositoryServiceSoap")]
+    internal interface UtilizadorRepositoryServiceSoap
     {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertUser", ReplyAction="*")]
-        System.Threading.Tasks.Task<ServiceReference1.InsertUserResponse> InsertUserAsync(ServiceReference1.InsertUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<ServiceReference1.AddUserResponse> AddUserAsync(ServiceReference1.AddUserRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    internal partial class InsertUserRequest
+    internal partial class AddUserRequest
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertUser", Namespace="http://tempuri.org/", Order=0)]
-        public ServiceReference1.InsertUserRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUser", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.AddUserRequestBody Body;
         
-        public InsertUserRequest()
+        public AddUserRequest()
         {
         }
         
-        public InsertUserRequest(ServiceReference1.InsertUserRequestBody Body)
+        public AddUserRequest(ServiceReference1.AddUserRequestBody Body)
         {
             this.Body = Body;
         }
@@ -67,17 +112,17 @@ namespace ServiceReference1
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    internal partial class InsertUserRequestBody
+    internal partial class AddUserRequestBody
     {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public ServiceReference1.Utilizador user;
         
-        public InsertUserRequestBody()
+        public AddUserRequestBody()
         {
         }
         
-        public InsertUserRequestBody(ServiceReference1.Utilizador user)
+        public AddUserRequestBody(ServiceReference1.Utilizador user)
         {
             this.user = user;
         }
@@ -87,17 +132,17 @@ namespace ServiceReference1
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    internal partial class InsertUserResponse
+    internal partial class AddUserResponse
     {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertUserResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ServiceReference1.InsertUserResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.AddUserResponseBody Body;
         
-        public InsertUserResponse()
+        public AddUserResponse()
         {
         }
         
-        public InsertUserResponse(ServiceReference1.InsertUserResponseBody Body)
+        public AddUserResponse(ServiceReference1.AddUserResponseBody Body)
         {
             this.Body = Body;
         }
@@ -106,23 +151,31 @@ namespace ServiceReference1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    internal partial class InsertUserResponseBody
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    internal partial class AddUserResponseBody
     {
         
-        public InsertUserResponseBody()
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int AddUserResult;
+        
+        public AddUserResponseBody()
         {
+        }
+        
+        public AddUserResponseBody(int AddUserResult)
+        {
+            this.AddUserResult = AddUserResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    internal interface UtilizadorRepositorySoapChannel : ServiceReference1.UtilizadorRepositorySoap, System.ServiceModel.IClientChannel
+    internal interface UtilizadorRepositoryServiceSoapChannel : ServiceReference1.UtilizadorRepositoryServiceSoap, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    internal partial class UtilizadorRepositorySoapClient : System.ServiceModel.ClientBase<ServiceReference1.UtilizadorRepositorySoap>, ServiceReference1.UtilizadorRepositorySoap
+    internal partial class UtilizadorRepositoryServiceSoapClient : System.ServiceModel.ClientBase<ServiceReference1.UtilizadorRepositoryServiceSoap>, ServiceReference1.UtilizadorRepositoryServiceSoap
     {
         
         /// <summary>
@@ -132,44 +185,44 @@ namespace ServiceReference1
         /// <param name="clientCredentials">The client credentials</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
         
-        public UtilizadorRepositorySoapClient(EndpointConfiguration endpointConfiguration) : 
-                base(UtilizadorRepositorySoapClient.GetBindingForEndpoint(endpointConfiguration), UtilizadorRepositorySoapClient.GetEndpointAddress(endpointConfiguration))
+        public UtilizadorRepositoryServiceSoapClient(EndpointConfiguration endpointConfiguration) : 
+                base(UtilizadorRepositoryServiceSoapClient.GetBindingForEndpoint(endpointConfiguration), UtilizadorRepositoryServiceSoapClient.GetEndpointAddress(endpointConfiguration))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
         
-        public UtilizadorRepositorySoapClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
-                base(UtilizadorRepositorySoapClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+        public UtilizadorRepositoryServiceSoapClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
+                base(UtilizadorRepositoryServiceSoapClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
         
-        public UtilizadorRepositorySoapClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(UtilizadorRepositorySoapClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        public UtilizadorRepositoryServiceSoapClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(UtilizadorRepositoryServiceSoapClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
         
-        public UtilizadorRepositorySoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public UtilizadorRepositoryServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ServiceReference1.InsertUserResponse> ServiceReference1.UtilizadorRepositorySoap.InsertUserAsync(ServiceReference1.InsertUserRequest request)
+        System.Threading.Tasks.Task<ServiceReference1.AddUserResponse> ServiceReference1.UtilizadorRepositoryServiceSoap.AddUserAsync(ServiceReference1.AddUserRequest request)
         {
-            return base.Channel.InsertUserAsync(request);
+            return base.Channel.AddUserAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ServiceReference1.InsertUserResponse> InsertUserAsync(ServiceReference1.Utilizador user)
+        public System.Threading.Tasks.Task<ServiceReference1.AddUserResponse> AddUserAsync(ServiceReference1.Utilizador user)
         {
-            ServiceReference1.InsertUserRequest inValue = new ServiceReference1.InsertUserRequest();
-            inValue.Body = new ServiceReference1.InsertUserRequestBody();
+            ServiceReference1.AddUserRequest inValue = new ServiceReference1.AddUserRequest();
+            inValue.Body = new ServiceReference1.AddUserRequestBody();
             inValue.Body.user = user;
-            return ((ServiceReference1.UtilizadorRepositorySoap)(this)).InsertUserAsync(inValue);
+            return ((ServiceReference1.UtilizadorRepositoryServiceSoap)(this)).AddUserAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
@@ -186,7 +239,7 @@ namespace ServiceReference1
         
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositorySoap))
+            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositoryServiceSoap))
             {
                 System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
                 result.MaxBufferSize = int.MaxValue;
@@ -196,7 +249,7 @@ namespace ServiceReference1
                 result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
                 return result;
             }
-            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositorySoap12))
+            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositoryServiceSoap12))
             {
                 System.ServiceModel.Channels.CustomBinding result = new System.ServiceModel.Channels.CustomBinding();
                 System.ServiceModel.Channels.TextMessageEncodingBindingElement textBindingElement = new System.ServiceModel.Channels.TextMessageEncodingBindingElement();
@@ -214,13 +267,13 @@ namespace ServiceReference1
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositorySoap))
+            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositoryServiceSoap))
             {
-                return new System.ServiceModel.EndpointAddress("https://localhost:44320/Services/UtilizadorRepository.asmx");
+                return new System.ServiceModel.EndpointAddress("https://localhost:44320/Services/UtilizadorRepositoryService.asmx");
             }
-            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositorySoap12))
+            if ((endpointConfiguration == EndpointConfiguration.UtilizadorRepositoryServiceSoap12))
             {
-                return new System.ServiceModel.EndpointAddress("https://localhost:44320/Services/UtilizadorRepository.asmx");
+                return new System.ServiceModel.EndpointAddress("https://localhost:44320/Services/UtilizadorRepositoryService.asmx");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
@@ -228,9 +281,9 @@ namespace ServiceReference1
         public enum EndpointConfiguration
         {
             
-            UtilizadorRepositorySoap,
+            UtilizadorRepositoryServiceSoap,
             
-            UtilizadorRepositorySoap12,
+            UtilizadorRepositoryServiceSoap12,
         }
     }
 }

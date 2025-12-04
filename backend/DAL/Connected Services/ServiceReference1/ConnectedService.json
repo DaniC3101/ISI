@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "https://localhost:44320/Services/UtilizadorRepository.asmx?WSDL"
+      "https://localhost:44320/Services/UtilizadorRepositoryService.asmx?WSDL"
     ],
     "collectionTypes": [
       "System.Array",
