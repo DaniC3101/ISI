@@ -1,7 +1,3 @@
-create database ISI;
-
-use ISI;
-
 create table Vinhos (
   Id         int identity not null, 
   Nome       nvarchar(255) not null, 
@@ -12,6 +8,7 @@ create table Vinhos (
   Descricao  nvarchar(255) not null, 
   Quantidade int not null, 
   ImagemUrl  nvarchar(255) null, 
+  Preco      float(10) not null, 
   primary key (Id));
 create table Sensores (
   Id                    int identity not null, 
